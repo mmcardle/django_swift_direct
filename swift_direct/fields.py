@@ -1,5 +1,5 @@
 from django.forms import Field
-from django_swift_direct.widgets import SwiftDirect
+from swift_direct.widgets import SwiftDirect
 
 __author__ = 'mm'
 

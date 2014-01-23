@@ -11,7 +11,7 @@ Example
 -------
 
     from django.forms import Form
-    from django_swift_direct.fields import SwiftDirectField
+    from swift_direct.fields import SwiftDirectField
 
 
     class ExampleForm(Form):

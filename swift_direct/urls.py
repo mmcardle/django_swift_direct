@@ -1,5 +1,5 @@
 from django.conf.urls import patterns, url
-from django_swift_direct.views import get_upload_params
+from swift_direct.views import get_upload_params
 
 
 urlpatterns = patterns('',

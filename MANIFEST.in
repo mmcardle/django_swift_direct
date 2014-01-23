@@ -1,2 +1,2 @@
 include AUTHORS CHANGES README.md LICENCE
-recursive-include django_swift_direct *.py *.html *.js *.css
+recursive-include swift_direct *.py *.html *.js *.css
