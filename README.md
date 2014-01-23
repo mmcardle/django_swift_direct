@@ -5,6 +5,8 @@ Direct Uploads to OpenStack Swift using CORS
 
 ![Screenshot](/screenshot.png)
 
+Using the tempurl middleware
+
 Example
 -------
 
@@ -37,3 +39,9 @@ Example
     {% block post_script %}
         {{ form.media.js }}
     {% endblock %}
+
+
+TODO
+----
+
+* Support SLO large objects
