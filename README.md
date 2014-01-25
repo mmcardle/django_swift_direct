@@ -7,8 +7,33 @@ Direct Uploads to OpenStack Swift using CORS
 
 Using the tempurl middleware
 
-Example
--------
+Example - Template Tags
+-----------------------
+
+    {% load swift_direct %}
+
+    <h3>Basic Template Tag</h3>
+
+    {% swift_direct %}
+
+    <h3>Upload to folder</h3>
+
+    {% swift_direct upload_to='documents/uploaded' %}
+
+    <h3>Upload to folder with set filename</h3>
+
+    {% swift_direct upload_to='documents/uploaded' filename='force_filename' %}
+
+    <h3>Include CSS</h3>
+
+    {% swift_direct_css %}
+
+    <h3>Include Javascript</h3>
+
+    {% swift_direct_js %}
+
+Example - Forms
+-----------------------
 
     from django.forms import Form
     from swift_direct.fields import SwiftDirectField

@@ -30,6 +30,7 @@ class SwiftDirect(widgets.TextInput):
 
     def __init__(self, *args, **kwargs):
         self.upload_to = kwargs.pop('upload_to', '')
+        self.filename = kwargs.pop('filename', '')
         super(SwiftDirect, self).__init__(*args, **kwargs)
 
     def render(self, name, value, attrs=None):
@@ -39,14 +40,18 @@ class SwiftDirect(widgets.TextInput):
 
         param_url = reverse('get_upload_params', kwargs=kwargs)
         file_url = value if value else ''
-        file_name = os.path.basename(file_url)
+        if self.filename:
+            filename = self.filename
+        else:
+            filename = os.path.basename(file_url).split('?')[0]
 
         context = {
             'param_url': param_url,
             'file_url': file_url,
-            'file_name': file_name,
+            'force_filename': self.filename,
+            'filename': filename,
             'element_id': element_id,
-            'name': name
+            'element_name': name
         }
 
         output = render_to_string('swift_direct/swift_direct_widget.html',

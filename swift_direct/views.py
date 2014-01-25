@@ -1,6 +1,7 @@
 import json
 import hmac
-from urlparse import urlparse
+import os
+from urlparse import urlparse, urljoin
 from time import time
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
@@ -33,8 +34,11 @@ def create_upload_data(source_filename, upload_to):
     swift_connection.head_account()
     key = 'key'
     upload_to_strftime = datetime.now().strftime(upload_to).strip('/')
-    url = "%s/%s/%s/%s" % (swift_connection.url, container, upload_to_strftime,
-                           source_filename)
+    path = os.path.normpath(os.path.join(container, upload_to_strftime,
+                                         source_filename))
+
+    url = '%s/%s' % (swift_connection.url, path)
+
     parsed = urlparse(url)
     method = 'PUT'
     expires = int(time() + 60)

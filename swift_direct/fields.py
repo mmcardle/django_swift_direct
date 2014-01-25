@@ -8,7 +8,8 @@ class SwiftDirectField(Field):
 
     def __init__(self, *args, **kwargs):
         upload_to = kwargs.pop('upload_to', '')
-        self.widget = SwiftDirect(upload_to=upload_to)
+        filename = kwargs.pop('filename', '')
+        self.widget = SwiftDirect(upload_to=upload_to, filename=filename)
         super(SwiftDirectField, self).__init__(*args, **kwargs)
 
     def get_internal_type(self):
