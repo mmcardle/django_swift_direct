@@ -12,23 +12,23 @@ Example - Template Tags
 
     {% load swift_direct %}
 
-    <h3>Basic Template Tag</h3>
+### Basic Template Tag
 
     {% swift_direct %}
 
-    <h3>Upload to folder</h3>
+### Upload to folder
 
     {% swift_direct upload_to='documents/uploaded' %}
 
-    <h3>Upload to folder with set filename</h3>
+### Upload to folder with set filename
 
     {% swift_direct upload_to='documents/uploaded' filename='force_filename' %}
 
-    <h3>Include CSS</h3>
+### Include CSS
 
     {% swift_direct_css %}
 
-    <h3>Include Javascript</h3>
+### Include Javascript
 
     {% swift_direct_js %}
 
