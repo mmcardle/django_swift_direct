@@ -1,4 +1,6 @@
-<div class="swift_direct" data-url="{{ param_url }}" data-filename="{{ force_filename }}">
+<div class="swift_direct" data-url="{{ param_url }}" data-filename="{{ force_filename }}"
+     data-slo-url="{{ slo_url }}" data-slo-threshold="{{DSD_SLO_THRESHOLD}}"
+     data-slo-chunk-size="{{DSD_SLO_CHUNK_SIZE}}">
     <span class="swift_direct_filename">{{ filename }}</span>
     <input type="hidden" value="{{ file_url }}" id="{{ element_id }}" name="{{ element_name }}" />
     <input type="file" class="fileinput" />

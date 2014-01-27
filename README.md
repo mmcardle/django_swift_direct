@@ -65,8 +65,3 @@ Example - Forms
         {{ form.media.js }}
     {% endblock %}
 
-
-TODO
-----
-
-* Support SLO large objects

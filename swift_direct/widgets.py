@@ -3,6 +3,7 @@ from django.forms import widgets
 from django.template.loader import render_to_string
 from django.utils.safestring import mark_safe
 from django.core.urlresolvers import reverse
+from swift_direct.utils import make_context
 
 __author__ = 'mm'
 
@@ -39,20 +40,15 @@ class SwiftDirect(widgets.TextInput):
         kwargs = {'upload_to': self.upload_to}
 
         param_url = reverse('get_upload_params', kwargs=kwargs)
+        slo_url = reverse('create_slo', kwargs=kwargs)
         file_url = value if value else ''
         if self.filename:
             filename = self.filename
         else:
             filename = os.path.basename(file_url).split('?')[0]
 
-        context = {
-            'param_url': param_url,
-            'file_url': file_url,
-            'force_filename': self.filename,
-            'filename': filename,
-            'element_id': element_id,
-            'element_name': name
-        }
+        context = make_context(param_url, slo_url, file_url, self.filename,
+                               filename, element_id, name)
 
         output = render_to_string('swift_direct/swift_direct_widget.html',
                                   dictionary=context)
